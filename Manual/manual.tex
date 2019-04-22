@@ -2,7 +2,7 @@
 \usepackage[margin=1in,top=1.25in]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage[onehalfspacing]{setspace}
-\usepackage{amsmath,amssymb,mathtools,kotex,enumitem,graphicx,fancyhdr,etoolbox,tikz,tgpagella,pgf,minted}
+\usepackage{amsmath,amssymb,mathtools,kotex,enumitem,graphicx,fancyhdr,etoolbox,tikz,tgpagella,pgf,minted,import}
 
 \pagestyle{fancy}
     \fancyhf{}
@@ -38,7 +38,7 @@
 \tableofcontents
 \newpage
 
-\input{../Algorithms/algotop}
-\input{../Cpp/cpptop}
+\import{../Algorithms/}{algotop.tex}
+\import{../Cpp/}{cpptop.tex}
 
 \end{document}
