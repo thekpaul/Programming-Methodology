@@ -1,0 +1,44 @@
+\documentclass[10pt,openany,a4pper]{book}
+\usepackage[margin=1in,top=1.25in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{amsmath,amssymb,mathtools,kotex,enumitem,graphicx,fancyhdr,etoolbox,tikz,tgpagella,pgf,minted}
+
+\pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[RE,LO]{Part \thepart\enspace--\enspace Chapter \thechapter}
+    \fancyhead[LE,RO]{\thepage}
+    \fancyfoot[C]{Student's Manual for Programming Methodology}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=0.5pt] (char) {\footnotesize{#1}};}
+} \newcommand{\byte}[1][]{\ensuremath\,\mathrm{#1B}}
+\newcommand{\imc}[2][]{\mintinline[#1]{cpp}{#2}}
+
+\setlist[enumerate,1]{label=\arabic*.,leftmargin=0.2in}
+\setlist[enumerate,2]{label=\arabic*),leftmargin=0.2in}
+\setlist[enumerate,3]{label=\protect\circled{\arabic*},leftmargin=0.2in}
+\setlist[enumerate,4]{label=\alph*.,leftmargin=0.2in}
+
+% \newcounter{mintcpp}[chapter]
+% \newcommand{\imb}[<++>]{
+%     \fbox[\textwidth]{
+%         \refstepcounter<++>
+%         \inputminted{cpp}{#1}
+%     }
+% }
+
+\begin{document}
+\begin{titlepage}
+    \title{Student's Manual for Programming Methodology\\{\Large with C++}}
+    \author{Paul Kim}
+    \date{powered by \LaTeXe{}}
+\maketitle
+\end{titlepage}
+\tableofcontents
+\newpage
+
+\input{../Algorithms/algotop}
+\input{../Cpp/cpptop}
+
+\end{document}
