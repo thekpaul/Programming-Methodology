@@ -1,36 +1,5 @@
 \part{Algorithms}
 
-\chapter{Time Complexity Analysis}
-\begin{enumerate}
-\item The running time of an algorithm is relevent to the amount of input.
-    Therefore the running time is a function of the amount of input: $T(n)$
-\item Definitions of Time Complexity: with a positive constant $c$,
-    \begin{enumerate}
-    \item Big-O: $T(n)\geq c\times f_O(n)~\Rightarrow~T(n)=O\left(f_O(n)\right)$
-        Best-case scenarios can be described via Big-O functions.
-    \item Big-Omega: $T(n)\leq c\times f_{\Omega}(n)~\Rightarrow~T(n)=\Omega
-        \left(f_{\Omega}(n)\right)$ Worst-case scenarios can be described via
-        Big-Omega functions.
-    \item Big-Theta: $T(n)\geq c\times f(n)\text{ and }T(n)\leq c'\times f(n)~
-        \Leftrightarrow~T(n)=O(f(n))=\Omega(f(n))~\Rightarrow~T(n)=\Theta(f(n))$
-        Best- and Worst-case scenarios are the same in Big-Theta functions.
-    \item Small-O: $T(n)=O(f_o(n))\neq\Theta(f_o(n))~\Rightarrow~T(n)=o(f_o(n))$
-    \end{enumerate}
-    Constants are ignored, and only the highest degree of the polynomial's
-    monomials are relevant to Time Complexity Analysis.
-\item Running Time Calculations
-    \begin{enumerate}
-    \item Summations for Loops: One loop sequence of running time $f(i)$ is
-        equivalent to: \[ T(n)=\sum_{i=1}^nf(i) \] Two loop sequences of running
-        time $f(i,~j)$ is equivalent to:\[T(n)=\sum_{j=1}^n\sum_{i=1}^nf(i,~j)\]
-    \item Selective Controls: Worst-case scenario, $T(n)=\mathrm{max}\left(
-        T_1(n),~T_2(n),\cdots\right)$. Best-case = minimum.
-    \item Recursion: $T(n)=f(T(n'))$ (점화식)
-    \end{enumerate}
-\end{enumerate}
-
-\chapter{Algorithm 1: Maximum Sum of Subarray}
-\inputminted{cpp}{../Algorithms/maxsubarray.cpp}
-
-\chapter{Algorithm 2: Various Sorting Algorithms}
-\inputminted{cpp}{../Algorithms/sort.hpp}
+\input{01_tca}
+\input{02_maxsubarray}
+\input{03_sorting}
