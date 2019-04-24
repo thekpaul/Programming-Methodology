@@ -2,7 +2,7 @@
 \usepackage[margin=1in,top=1.25in]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage[onehalfspacing]{setspace}
-\usepackage{amsmath,amssymb,mathtools,kotex,enumitem,graphicx,fancyhdr,etoolbox,tikz,tgpagella,pgf,minted,import}
+\usepackage{amsmath,amssymb,mathtools,kotex,enumitem,graphicx,fancyhdr,etoolbox,tikz,tgpagella,pgf,minted,import,framed}
 
 \pagestyle{fancy}
     \fancyhf{}
@@ -21,11 +21,12 @@
 \setlist[enumerate,4]{label=\alph*.,leftmargin=0.2in}
 
 %\newcounter{mintcpp}[chapter]
-%\newcommand{\imb}[<++>]{
-%    \fbox[\textwidth]{
+%\newcommand{\imb}[4][][1][10][0.25]{
+%    \begin{framed}
 %        \refstepcounter<++>
-%        \inputminted[<++>]{cpp}{#1}
-%    }
+%        \inputminted[firstline=#2,lastline=#3,linenos,xleftmargin=#4]
+%            {cpp}{#1}
+%    \end{framed}
 %}
 
 \begin{document}
