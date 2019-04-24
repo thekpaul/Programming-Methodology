@@ -1,25 +1,38 @@
-\chapter{Objective 1: Finding the Maximum Subarray Sum}
+\chapter{Finding the Maximum Subarray Sum}
 The objective of this challenge is to find the maximum value of the sum of
 elements in a subarray of a given array. If all integers are negative, said
 maximum value is the sum of a subarray equivalent to the `empty set', which is
 zero.
 
 \section{Cubic Brute Force Algorithm}
-\inputminted[firstline=6,lastline=15,linenos,xleftmargin=0.25in]{cpp}
-    {../Algorithms/maxsubarray.cpp}
-
+\inputminted[firstline=6,lastline=15]{cpp}{../Algorithms/maxsubarray.cpp}
+This algorithm utilises three loops and a function of constant time in the
+innermost loop. Therefore, the time complexity analysis goes:
+\[ T(n)=\sum_{i=1}^n\sum_{j=i}^n\sum_{k=i}^j1=O\left(n^3\right) \]
+Obviously this method is quite wasteful in both memory and timekeeping. The
+following two algorithms are substantial progessions from this algorithm:
+\newpage
 
 \section{Quadratic Brute Force Algorithm}
-\inputminted[firstline=17,lastline=27,linenos,xleftmargin=0.25in]{cpp}
-    {../Algorithms/maxsubarray.cpp}
-
+\inputminted[firstline=18,lastline=27]{cpp}{../Algorithms/maxsubarray.cpp}
+This algorithm utilises two loops and a function of constant time in the
+innermost loop. Therefore, the time complexity analysis goes:
+\[ T(n)=\sum_{i=1}^n\sum_{j=i}^n1=O\left(n^2\right) \]
 
 \section{Divide and Conquer}
-\inputminted[firstline=30,lastline=49,linenos,xleftmargin=0.25in]{cpp}
-    {../Algorithms/maxsubarray.cpp}
-
+\inputminted[firstline=30,lastline=49]{cpp}{../Algorithms/maxsubarray.cpp}
+This algorithm utilises a divisive recursion and selection controls of constant
+time within each recursion. Therefore, the time complexity analysis goes:
+\[ T(n)=2T\left(\frac{n}{2}\right)+n=2^kT\left(\frac{n}{2^k}\right)+nk,~
+\therefore T(n)=2^{\log_2n}T(1)+n\log_2n=n\log_2n+\varepsilon n=O(n\log n) \]
+\newpage
+While these two algorithms are quite effective compared to Cubic Brute Force,
+this last algorithm manages to provide the fastest solution possible:
 
 \section{Kadane's Algorithm: A Linear, Incremental Solution}
-\inputminted[firstline=52,lastline=59,linenos,xleftmargin=0.25in]{cpp}
-    {../Algorithms/maxsubarray.cpp}
+\inputminted[firstline=52,lastline=59]{cpp}{../Algorithms/maxsubarray.cpp}
+This algorithm utilises one loop and a function of constant time in the loop.
+Therefore, the time complexity analysis goes: \[ T(n)=\sum_{i=1}^n1=O(n) \]
 
+Since, essentially, the challenge requires a system to read each data at least
+once, the $O(n)$ function above is obviously the best solution.
