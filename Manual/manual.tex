@@ -9,16 +9,27 @@
     \fancyhead[RE,LO]{Part \thepart\enspace--\enspace Chapter \thechapter}
     \fancyhead[LE,RO]{\thepage}
     \fancyfoot[C]{Student's Manual for Programming Methodology}
+    \renewcommand{\headrulewidth}{1pt}
+    \renewcommand{\footrulewidth}{1pt}
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
     \node[shape=circle,draw,inner sep=0.5pt] (char) {\footnotesize{#1}};}
 } \newcommand{\byte}[1][]{\ensuremath\,\mathrm{#1B}}
 \newcommand{\imc}[2][]{\mintinline[#1]{cpp}{#2}}
+\setminted{fontsize=\small,xleftmargin=0.25in,linenos}
+\setlength{\parindent}{0pt}
 
 \setlist[enumerate,1]{label=\arabic*.,leftmargin=0.2in}
 \setlist[enumerate,2]{label=\arabic*),leftmargin=0.2in}
 \setlist[enumerate,3]{label=\protect\circled{\arabic*},leftmargin=0.2in}
 \setlist[enumerate,4]{label=\alph*.,leftmargin=0.2in}
+
+\AtBeginDocument{%
+    \setlength\abovedisplayskip{2pt}
+    \setlength\belowdisplayskip{2pt}
+    \setlength\abovedisplayshortskip{2pt}
+    \setlength\belowdisplayshortskip{2pt}
+}
 
 %\newcounter{mintcpp}[chapter]
 %\newcommand{\imb}[4][][1][10][0.25]{
