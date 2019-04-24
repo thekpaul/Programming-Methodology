@@ -1,100 +1,121 @@
 #include <iostream>
 #include "sort.hpp"
-
 using namespace std;
 
-bool check_quick(QuickSort *quick_sort) {
-    int check = 0;
-    for (int i = 1; i < quick_sort->size; i++) {
-        if (quick_sort->arr[i - 1] > quick_sort->arr[i]) ++check;
-    } if (check > 0) return false;
-    else return true;
+void quicksort(double *arr, int begin, int end) {
+    double pivot = arr[begin];
+    int i = begin, j = end;
+    while (i <= j) {
+        while (arr[i] < pivot) i++;
+        while (arr[j] > pivot) j--;
+        if (i <= j) {
+            swap(arr[i], arr[j]);
+            i++; j--;
+        }
+    } if (begin < j) quicksort(arr, begin, j);
+    if (end > i) quicksort(arr, i, end);
 }
 
-bool check_merge(MergeSort *merge_sort) {
-    int check = 0;
-    for (int i = 1; i < merge_sort->size; i++) {
-        if (merge_sort->arr[i - 1] > merge_sort->arr[i]) ++check;
-    } if (check > 0) return false;
-    else return true;
+void mergesort(double * arr, int begin, int end) {
+    int centre = 0;
+    if (begin < end) {
+        centre = begin + (end - begin) / 2;
+        mergesort(arr, begin, centre);
+        mergesort(arr, centre + 1, end);
+        int n1 = centre - begin + 1;
+        int n2 = end - centre;
+        double* L = new double[n1 + 1];
+        double* R = new double[n2 + 1];
+        for (int i = 0; i <= n1 - 1; i++) L[i] = arr[begin + i];
+        for (int j = 0; j <= n2 - 1; j++) R[j] = arr[centre + j + 1];
+        L[n1] = (double)INT_MAX;
+        R[n2] = (double)INT_MAX;
+        int a = 0, b = 0;
+        for (int k = begin; k <= end; k++) {
+            if (L[a] <= R[b]) {
+                arr[k] = L[a];
+                a++;
+            } else {
+                arr[k] = R[b];
+                b++;
+            }
+        }
+    }
 }
 
-bool check_insertion(InsertionSort *insertion_sort) {
-    int check = 0;
-    for (int i = 1; i < insertion_sort->size; i++) {
-        if (insertion_sort->arr[i - 1] > insertion_sort->arr[i]) ++check;
-    } if (check > 0) return false;
-    else return true;
+void insertionsort(double* arr, int size) {
+    for (int i = 1; i <= size - 1; i++) {
+        double key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        } arr[j + 1] = key;
+    }
 }
 
-bool check_stooge(StoogeSort *stooge_sort) {
-    int check = 0;
-    for (int i = 1; i < stooge_sort->size; i++) {
-        if (stooge_sort->arr[i - 1] > stooge_sort->arr[i]) ++check;
-    } if (check > 0) return false;
-    else return true;
+void stoogesort(double* arr, int begin, int end) {
+    if (begin >= end) return;
+    else if (end - begin == 1) {
+        if (arr[begin] > arr[end]) swap(arr[begin], arr[end]);
+    } else {
+        int d = (end - begin + 1) / 3;
+        stoogesort(arr, begin, end - d);
+        stoogesort(arr, begin + d, end);
+        stoogesort(arr, begin, end - d);
+    }
 }
 
-bool check_heap(HeapSort *heap_sort) {
-    int check = 0;
-    for (int i = 2; i < heap_sort->size; i++) {
-        if (heap_sort->arr[i - 1] > heap_sort->arr[i]) ++check;
-    } if (check > 0) return false;
-    else return true;
+void heapsort(double *arr, int n, int i) {
+    int largest = i;
+    int l = 2 * i + 1;
+    int r = 2 * i + 2;
+    if (l < n && arr[l] > arr[largest]) largest = l;
+    if (r < n && arr[r] > arr[largest]) largest = r;
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        heapsort(arr, n, largest);
+    }
+}
+
+bool check(double *arr) {
+    for (int i = 1; i < 2500; i++) {
+        if (arr[i - 1] > arr[i]) return false;
+    } return true;
 }
 
 int main(int argc, char *argv[]) {
-    int n; cin >> n;
-    double *input_array = new double[n];
-    for (int i = 0; i < n; i++) input_array[i] = double(rand() % n);
+    double *input_array = new double[2500];
+    for (int i = 0; i < 2500; i++) input_array[i] = double(rand() % 2500);
 
-    // QuickSort
-    QuickSort *quick_sort = new QuickSort();
-    quick_sort->set(input_array, n);
-    quick_sort->run();
-    if (quick_sort->timer()) quick_sort->print_time();
-    if (check_quick(quick_sort)) {
-        cout << "QuickSort is validated" << endl << endl;
-    } delete quick_sort;
+    double *quick_arr = new double[2500];
+    for (int i = 0; i < 2500; i++) quick_arr[i] = input_array[i];
+    quicksort(quick_arr, 0, 2499);
+    if (check(quick_arr)) cout << "Quicksort Validated" << endl;
 
-    // MergeSort
-    MergeSort *merge_sort = new MergeSort();
-    merge_sort->set(input_array, n);
-    merge_sort->run();
-    if (merge_sort->timer()) merge_sort->print_time();
-    if (check_merge(merge_sort)) {
-        cout << "MergeSort is validated" << endl << endl;
-    } delete merge_sort;
+    double *merge_arr = new double[2500];
+    for (int i = 0; i < 2500; i++) merge_arr[i] = input_array[i];
+    mergesort(merge_arr, 0, 2499);
+    if (check(merge_arr)) cout << "Mergesort Validated" << endl;
 
-    // InsertionSort
-    InsertionSort *insertion_sort = new InsertionSort();
-    // implement here
-    insertion_sort->set(input_array, n);
-    insertion_sort->run();
-    if (insertion_sort->timer()) insertion_sort->print_time();
-    if (check_insertion(insertion_sort)) {
-        cout << "InsertionSort is validated" << endl << endl;
-    } delete insertion_sort;
+    double *insertion_arr = new double[2500];
+    for (int i = 0; i < 2500; i++) insertion_arr[i] = input_array[i];
+    insertionsort(insertion_arr, 2500);
+    if (check(insertion_arr)) cout << "Insertionsort Validated" << endl;
 
-    // StoogeSort
-    StoogeSort *stooge_sort = new StoogeSort();
-    // implement here
-    stooge_sort->set(input_array, n);
-    stooge_sort->run();
-    if (stooge_sort->timer()) stooge_sort->print_time();
-    if (check_stooge(stooge_sort)) {
-        cout << "StoogeSort is validated" << endl << endl;
-    } delete stooge_sort;
+    double *stooge_arr = new double[2500];
+    for (int i = 0; i < 2500; i++) stooge_arr[i] = input_array[i];
+    stoogesort(stooge_arr, 0, 2499);
+    if (check(stooge_arr)) cout << "Stoogesort Validated" << endl;
 
-    // HeapSort
-    HeapSort *heap_sort = new HeapSort();
-    heap_sort->set(input_array, n);
-    heap_sort->run();
-    if (heap_sort->timer()) heap_sort->print_time();
-    if (heap_sort->timer()) cout << "Time" ;
-    if (check_heap(heap_sort)) {
-        cout << "HeapSort is validated" << endl << endl;
-    } delete heap_sort;
+    double *heap_arr = new double[2500];
+    for (int i = 0; i < 2500; i++) heap_arr[i] = input_array[i];
+    for (int i = 1249; i >= 0; i--)
+        heapsort(heap_arr, 2500, i);
+    for (int i = 2499; i >= 0; i--) {
+        swap(heap_arr[0], heap_arr[i]);
+        heapsort(heap_arr, i, 0);
+    } if (check(heap_arr)) cout << "Heapsort Validated" << endl;
 
     return 0;
 }
