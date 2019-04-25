@@ -1,5 +1,4 @@
 #include <iostream>
-#include "sort.hpp"
 using namespace std;
 
 void quicksort(double *arr, int begin, int end) {
@@ -17,9 +16,8 @@ void quicksort(double *arr, int begin, int end) {
 }
 
 void mergesort(double * arr, int begin, int end) {
-    int centre = 0;
     if (begin < end) {
-        centre = begin + (end - begin) / 2;
+        int centre = begin + (end - begin) / 2;
         mergesort(arr, begin, centre);
         mergesort(arr, centre + 1, end);
         int n1 = centre - begin + 1;
@@ -32,16 +30,18 @@ void mergesort(double * arr, int begin, int end) {
         R[n2] = (double)INT_MAX;
         int a = 0, b = 0;
         for (int k = begin; k <= end; k++) {
-            if (L[a] <= R[b]) {
-                arr[k] = L[a];
-                a++;
-            } else {
-                arr[k] = R[b];
-                b++;
-            }
+            if (L[a] <= R[b]) arr[k] = L[a++];
+            else arr[k] = R[b++];
         }
     }
 }
+
+
+
+
+
+
+
 
 void insertionsort(double* arr, int size) {
     for (int i = 1; i <= size - 1; i++) {
