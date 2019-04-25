@@ -1,0 +1,19 @@
+\chapter{\texttt{iostream} Headers}
+
+\section{Keyboard Input and Screen Output}
+
+\section{File In/Output}
+
+\section{Header Files}
+\begin{enumerate}
+\item Header File: A file that allows the reusage of certain portions of source
+    code. Header files are included to a source code via \imc{#include}, which
+    inserts the header file code at that specific location.
+\item Headers are used for declaring functions, classes, et cetra, and since a
+    header file can be used multiple times by multiple source codes, defining
+    variables and classes must not happen in a header file.
+\item Include Guards: Since a single header file can be included multiple times
+    throughout a compiling process and cause compilation errors, prevention
+    methods are supported by the compilers. This ``guard from inclusion"s are
+    called \textbf{Include guard}s: \imb{\cpp/03_iosheader.hpp}
+\end{enumerate}
