@@ -48,11 +48,11 @@
             \inputminted[lastline=#2]{cpp}{#3}%
         }%
     } {%
-        \IfNoValueTF{#2} {%
-            \inputminted[firstline=#1]{cpp}{#3}%
-        } {%
+      % \IfNoValueTF{#2} {%
+      %     \inputminted[firstline=#1]{cpp}{#3}%
+      % } {%
             \inputminted[firstline=#1,lastline=#2]{cpp}{#3}%
-        }%
+      % }%
     }%
   % \end{framed}
 }
