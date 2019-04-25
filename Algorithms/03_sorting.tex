@@ -12,10 +12,19 @@ equal value.
     {../Algorithms/sorting.cpp}
 \inputminted[firstline=120,lastline=121,linenos,xleftmargin=0.25in]{cpp}
     {../Algorithms/sorting.cpp}
-
+Quick Sort is a recursive algorithm that does the following:
+\begin{enumerate}
+\item Choose a ``pivot" element: \texttt{Line 6}
+\item Swap elements that are larger than the pivot with elements that are
+    smaller but on the righthand side of the chosen element: \texttt{Lines 8:14}
+\item Continue until all elements are sorted, then recursively proceed with the
+    left and right subarrays of the pivot: \texttt{Lines 15, 16}
+\end{enumerate}
+Using two half-recursions results in the following time complexity analysis: \[
+T(n)=2T\left(\frac{n}{2}\right)+n=2^kT\left(\frac{n}{2^k}\right)+kn=O(n\log n)\]
 
 \section{Merge Sort}
-\inputminted[firstline=19,lastline=44,linenos,xleftmargin=0.25in]{cpp}
+\inputminted[firstline=19,lastline=37,linenos,xleftmargin=0.25in]{cpp}
     {../Algorithms/sorting.cpp}
 \inputminted[firstline=87,lastline=89,linenos,xleftmargin=0.25in]{cpp}
     {../Algorithms/sorting.cpp}
@@ -23,7 +32,9 @@ equal value.
     {../Algorithms/sorting.cpp}
 \inputminted[firstline=120,lastline=121,linenos,xleftmargin=0.25in]{cpp}
     {../Algorithms/sorting.cpp}
-
+Merge Sort is also a recursive algorithm that depends on two half-recursions, so
+the time complexity analysis goes: \[ T(n)=2T\left(\frac{n}{2}\right)+n=
+2^kT\left(\frac{n}{2^k}\right)+kn=O(n\log n) \]
 
 \section{Insertion Sort}
 \inputminted[firstline=46,lastline=55,linenos,xleftmargin=0.25in]{cpp}
@@ -34,7 +45,8 @@ equal value.
     {../Algorithms/sorting.cpp}
 \inputminted[firstline=120,lastline=121,linenos,xleftmargin=0.25in]{cpp}
     {../Algorithms/sorting.cpp}
-
+Insertion Sort is a double-loop algorithm, therefore time complexity analysis is
+as follows: \[ T(n)=\sum_{i=1}^n\sum_{j=1}^i\epsilon=O(n^2) \] TODO: TCA Unclear
 
 \section{Stooge Sort}
 \inputminted[firstline=57,lastline=67,linenos,xleftmargin=0.25in]{cpp}
@@ -45,7 +57,7 @@ equal value.
     {../Algorithms/sorting.cpp}
 \inputminted[firstline=120,lastline=121,linenos,xleftmargin=0.25in]{cpp}
     {../Algorithms/sorting.cpp}
-
+Stooge Sort is a recursive algorithm of three subarrays.
 
 \section{Heap Sort}
 \inputminted[firstline=69,lastline=79,linenos,xleftmargin=0.25in]{cpp}
@@ -56,4 +68,4 @@ equal value.
     {../Algorithms/sorting.cpp}
 \inputminted[firstline=120,lastline=121,linenos,xleftmargin=0.25in]{cpp}
     {../Algorithms/sorting.cpp}
-
+Heap sort is a loop-and-recursive algorithm
