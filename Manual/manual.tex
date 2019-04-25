@@ -4,6 +4,10 @@
 \usepackage[onehalfspacing]{setspace}
 \usepackage{amsmath,amssymb,mathtools,kotex,enumitem,graphicx,fancyhdr,etoolbox,tikz,tgpagella,pgf,minted,import,framed}
 
+\makeatletter
+\@addtoreset{chapter}{part}
+\makeatother
+
 \pagestyle{fancy}
     \fancyhf{}
     \fancyhead[RE,LO]{Part \thepart\enspace--\enspace Chapter \thechapter}
