@@ -2,7 +2,7 @@
 \usepackage[margin=1in,top=1.25in]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage[onehalfspacing]{setspace}
-\usepackage{amsmath,amssymb,mathtools,kotex,enumitem,graphicx,fancyhdr,etoolbox,tikz,tgpagella,pgf,minted,import,framed}
+\usepackage{amsmath,amssymb,mathtools,kotex,enumitem,graphicx,fancyhdr,etoolbox,tikz,tgpagella,pgf,minted,import,framed,xparse,xkeyval}
 
 \makeatletter
 \@addtoreset{chapter}{part}
@@ -16,6 +16,8 @@
     \renewcommand{\headrulewidth}{1pt}
     \renewcommand{\footrulewidth}{1pt}
 
+\def\cpp{../cpp}
+\def\alg{../algorithms}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
     \node[shape=circle,draw,inner sep=0.5pt] (char) {\footnotesize{#1}};}
 } \newcommand{\byte}[1][]{\ensuremath\,\mathrm{#1B}}
@@ -36,13 +38,24 @@
 }
 
 %\newcounter{mintcpp}[chapter]
-%\newcommand{\imb}[4][][1][10][0.25]{
-%    \begin{framed}
-%        \refstepcounter<++>
-%        \inputminted[firstline=#2,lastline=#3,linenos,xleftmargin=#4]
-%            {cpp}{#1}
-%    \end{framed}
-%}
+\NewDocumentCommand \imb { o o m } {%
+  % \begin{framed}
+  %     \refstepcounter<++>
+    \IfNoValueTF{#1} {%
+        \IfNoValueTF{#2} {%
+            \inputminted{cpp}{#3}%
+        } {%
+            \inputminted[lastline=#2]{cpp}{#3}%
+        }%
+    } {%
+        \IfNoValueTF{#2} {%
+            \inputminted[firstline=#1]{cpp}{#3}%
+        } {%
+            \inputminted[firstline=#1,lastline=#2]{cpp}{#3}%
+        }%
+    }%
+  % \end{framed}
+}
 
 \begin{document}
 \begin{titlepage}
@@ -54,7 +67,29 @@
 \tableofcontents
 \newpage
 
-\import{../Algorithms/}{00_algotop.tex}
-\import{../Cpp/}{00_cpptop.tex}
+\part{Algorithms}
+
+\import{../Algorithms/}{01_tca}
+\import{../Algorithms/}{02_maxsubarray}
+\import{../Algorithms/}{03_sorting}
+
+\part{C++}
+
+\import{../Cpp/}{01_varandclass}
+\import{../Cpp/}{02_functions}
+\import{../Cpp/}{03_iostream}
+\import{../Cpp/}{04_arrandpoint}
+\import{../Cpp/}{05_oop}
+\import{../Cpp/}{06_defclass}
+\import{../Cpp/}{07_memfunc}
+\import{../Cpp/}{08_namespace}
+\import{../Cpp/}{09_condestruct}
+\import{../Cpp/}{10_pubprivfriend}
+\import{../Cpp/}{11_copyconstruct}
+\import{../Cpp/}{12_operover}
+\import{../Cpp/}{13_protectpriv}
+\import{../Cpp/}{14_virtualfunc}
+\import{../Cpp/}{15_purevirtual}
+\import{../Cpp/}{16_reusemem}
 
 \end{document}
