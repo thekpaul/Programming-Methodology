@@ -46,7 +46,7 @@ the time complexity analysis goes: \[ T(n)=2T\left(\frac{n}{2}\right)+n=
 \inputminted[firstline=120,lastline=121,linenos,xleftmargin=0.25in]{cpp}
     {../Algorithms/sorting.cpp}
 Insertion Sort is a double-loop algorithm, therefore time complexity analysis is
-as follows: \[ T(n)=\sum_{i=1}^n\sum_{j=1}^i\epsilon=O(n^2) \] TODO: TCA Unclear
+as follows: \[ T(n)=\sum_{i=1}^n\sum_{j=1}^i\epsilon=O(n^2) \]
 
 \section{Stooge Sort}
 \inputminted[firstline=57,lastline=67,linenos,xleftmargin=0.25in]{cpp}
@@ -57,7 +57,9 @@ as follows: \[ T(n)=\sum_{i=1}^n\sum_{j=1}^i\epsilon=O(n^2) \] TODO: TCA Unclear
     {../Algorithms/sorting.cpp}
 \inputminted[firstline=120,lastline=121,linenos,xleftmargin=0.25in]{cpp}
     {../Algorithms/sorting.cpp}
-Stooge Sort is a recursive algorithm of three subarrays.
+Stooge Sort is a recursive algorithm of three subarrays. The time complexity is:
+\[ T(n)=3T\left(\frac{3}{2}n\right)+1,~\therefore T(n)\approx
+O\left(n^{2.7}\right) \]
 
 \section{Heap Sort}
 \inputminted[firstline=69,lastline=79,linenos,xleftmargin=0.25in]{cpp}
@@ -68,4 +70,5 @@ Stooge Sort is a recursive algorithm of three subarrays.
     {../Algorithms/sorting.cpp}
 \inputminted[firstline=120,lastline=121,linenos,xleftmargin=0.25in]{cpp}
     {../Algorithms/sorting.cpp}
-Heap sort is a loop-and-recursive algorithm
+Heap sort is a loop-and-recursive algorithm of time complexy analysis \[ T(n)=
+O(n\log n) \]
