@@ -1,0 +1,22 @@
+\chapter{Minimum Search on Rotated Array}
+The objective of this challenge is to find the smallest element in an array
+that was rotated at a random index after being sorted. Duplicate elements are
+not allowed for this challenge.
+
+\section{Solution}
+\imb[3][11]{\alg/rotatedarray.cpp}
+\imb[34][39]{\alg/rotatedarray.cpp}
+\imb[42][43]{\alg/rotatedarray.cpp}
+
+By using a binary-search method with three nodes, the code above is successful
+in finding and returning the smallest element. This algorithm uses recursive
+functions, and shows the time complexity of the following:
+\[ T(n)=2T\left(\frac{n}{2}\right)+\alpha=4T\left(\frac{n}{4}\right)+3\alpha=
+\cdots=2^kT\left(\frac{n}{2^k}\right)+\frac{k(k+1)}{2}\alpha,~\therefore T(n)=
+O(\log n) \]
+
+\iffalse
+\section{With Duplicate Elements}
+With duplicate elements, the time complexity cannot be kept at $\log n$. Follow-
+up explanations for rotated arrays with duplicates will soon be committed.
+\fi
