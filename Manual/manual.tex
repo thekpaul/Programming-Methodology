@@ -2,7 +2,8 @@
 \usepackage[margin=1in,top=1.25in]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage[onehalfspacing]{setspace}
-\usepackage{amsmath,amssymb,mathtools,kotex,enumitem,graphicx,fancyhdr,etoolbox,tikz,tgpagella,pgf,minted,import,framed,xparse,xkeyval}
+\usepackage{amsmath,amssymb,mathtools,kotex,enumitem,graphicx,fancyhdr,etoolbox,
+    tikz,tgpagella,pgf,minted,import,framed,xparse,xkeyval}
 
 \makeatletter
 \@addtoreset{chapter}{part}
@@ -22,7 +23,6 @@
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
     \node[shape=circle,draw,inner sep=0.5pt] (char) {\footnotesize{#1}};}
 } \newcommand{\byte}[1][]{\ensuremath\,\mathrm{#1B}}
-\newcommand{\imc}[2][]{\mintinline[#1]{cpp}{#2}}
 \setminted{fontsize=\small,xleftmargin=0.25in,linenos}
 \setlength{\parindent}{0pt}
 
@@ -38,10 +38,19 @@
     \setlength\belowdisplayshortskip{2pt}
 }
 
+\ExplSyntaxOn
+\NewDocumentCommand \imc { o } {
+    \IfNoValueTF{#1} {
+        \mintinline{cpp}
+    } {
+        \mintinlint[#1]{cpp}
+    }
+}
+
 %\newcounter{mintcpp}[chapter]
 \NewDocumentCommand \imb { o o m } {%
   % \begin{framed}
-  %     \refstepcounter<++>
+  %     \refstepcounter<++
     \IfNoValueTF{#1} {%
         \IfNoValueTF{#2} {%
             \inputminted{cpp}{#3}%
@@ -49,14 +58,10 @@
             \inputminted[lastline=#2]{cpp}{#3}%
         }%
     } {%
-      % \IfNoValueTF{#2} {%
-      %     \inputminted[firstline=#1]{cpp}{#3}%
-      % } {%
-            \inputminted[firstline=#1,lastline=#2]{cpp}{#3}%
-      % }%
+        \inputminted[firstline=#1,lastline=#2]{cpp}{#3}%
     }%
   % \end{framed}
-}
+} \ExplSyntaxOff
 
 \begin{document}
 \begin{titlepage}
@@ -73,6 +78,12 @@
 \import{../Algorithms/}{01_tca}
 \import{../Algorithms/}{02_maxsubarray}
 \import{../Algorithms/}{03_sorting}
+\import{../Algorithms/}{04_rotatedarray}
+\import{../Algorithms/}{05_kthsmall}
+\import{../Algorithms/}{06_closestpair}
+\import{../Algorithms/}{07_rodcutting}
+\import{../Algorithms/}{08_assemblyline}
+\import{../Algorithms/}{09_matrixchain}
 
 \part{C++}
 
@@ -92,24 +103,13 @@
 \import{../Cpp/}{14_virtualfunc}
 \import{../Cpp/}{15_purevirtual}
 \import{../Cpp/}{16_reusemem}
-
-\part{Java}
-
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
-% \import{../Java}{<++>}
+\import{../Cpp/}{17_functiontemplate}
+\import{../Cpp/}{18_classtemplate}
+\import{../Cpp/}{19_membertemplate}
+\import{../Cpp/}{20_genericalg}
+\import{../Cpp/}{21_multiinherit}
+\import{../Cpp/}{22_operatoroverload}
+\import{../Cpp/}{23_functors}
+\import{../Cpp/}{24_preprocessor}
 
 \end{document}
