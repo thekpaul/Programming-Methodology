@@ -1,8 +1,15 @@
 \chapter{Assembly-Line Scheduling Algorithm}
+The objective of this challenge is to move from entry to exit point via stations
+along two assembly lines. Each station has a fixed time of processing, and from
+a station one can move to the next station along the line OR the next station on
+the other assembly line. Elements can be of equal value.
 
+\section{Brute Force}
+With $n$ stations on each assembly line, there are $2^n$ possible ways to choose
+stations. Therefore the brute force algorithm takes $\Omega\left(2^n\right)$ of
+time complexity to be completely processed, making it infeasible.
 
-\section{<++>}
-
-\section{<++>}
-
-\section{<++>}
+\section{The Fastesy Way}
+\imb{assemblyline.cpp}
+With a simple loop algorithm and a minimum-evaluating process every iteration,
+this process shows a time complexity of: \[ T(n)=\Theta(n) \]
