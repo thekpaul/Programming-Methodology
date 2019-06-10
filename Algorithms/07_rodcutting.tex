@@ -1,7 +1,19 @@
 \chapter{Rod Cutting Algorithm}
+The objective of this challenge is to determine how to cut an imaginary rod to
+receive the maximum revenue. Revenue per rod length and initial rod lengths are 
+given. Note that, if the price for the initial rod length is high enough, the
+optimal solution may require no cutting at all.
 
+\section{Brute Force}
+% \imb[<++>][<++>]{rodcutting.cpp}
+% \imb[<++>][<++>]{rodcutting.cpp}
+% \imb[<++>][<++>]{rodcutting.cpp}
+% \imb[<++>][<++>]{rodcutting.cpp}
 
-\section{<++>}
+Since there are $n-1$ places to either cut or leave, there are $2^{n-1}$ ways in
+total to cut a rod of $n$ inches. Therefore a brute force algorithm such as the
+one presented solves all possible outcomes and finds the maximum value. Time
+Complexity Analysis shows an exponential time function.
 
 \section{<++>}
 
