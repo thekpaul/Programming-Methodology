@@ -1,8 +1,16 @@
 \chapter{Finding the $k$-th Smallest Number}
+The objective of this challenge is to find the $k$-th smallest number in an
+unsorted array. Some elements may be of equal value.
 
+\section{Sort-and-Find}
+This solution sorts the unsorted array and returning the value at index $k$. As
+seen before, time complexity analysis indicates that this approach requires more
+than $O(n\log n)$ amount of time. Since the sorting algorithm has already been
+presented before, it will not be features again.
 
-\section{<++>}
-
-\section{<++>}
-
-\section{<++>}
+\section{Quick Select}
+This solution is modeled after the Quicksort algorithm. Unlike Quicksort, this
+algorithm only focuses on one side of the partition, and therefore its expected
+running time is $T(n)=\Theta(n)$.
+\imb[3][15]{\alg/kthsmall.cpp}
+\imb[17][24]{\alg/kthsmall.cpp}
