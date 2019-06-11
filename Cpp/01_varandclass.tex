@@ -14,7 +14,6 @@ beginning and end: \imc{/* Comment 2 */}
 \subsection{Types and Variables}
 \begin{enumerate}
 \item Primitive, built-in types:
-    % \imb[1][2]{01_varandclass.cpp}
     \begin{enumerate}
     \item \imc{void} is used to determine functions and variables of no return
         value.
@@ -25,7 +24,52 @@ beginning and end: \imc{/* Comment 2 */}
     \end{enumerate}
 \item Enumerations: \imc{enum} is used to define groups of integer constants.
     \imb[5]{\cpp/01_varandclass.cpp}
+\item Variable Scopes: Varaibles are defined only up to the level of their own
+    declaration.
+    \begin{enumerate}
+    \item Global Variables: Variables that are declared outside functions and
+        classes. Global variables can be defined as \imc{static} to make its
+        scope local to one file.
+    \item Local Variables: Variables that are declared within a function, class,
+        or otherwise enclosed snippets of code. Variables can only be used and
+        memoized within that specific snippet. However, these variables can also
+        be defined as \imc{static} to retain its value from previous uses and
+        bypass re-initialisation.
+    \end{enumerate}
+\item Constant Qualifier: Variables preceded by the keyword \imc{const} is fixed
+    and cannot be altered by the program.
+    \imb[6]{\cpp/01_varandclass.cpp}
 \end{enumerate}
 
-\section{<++>}
-
+\section{Basic Expressions and Statements}
+\begin{enumerate}
+\item Basic Expressions: Expressions are combinations of iterated variables
+    and operators that portray a new value or meaning.
+    \begin{enumerate}
+    \item Arithmetic Expressions: Like most other programming languages, C++
+        features arithmetic operators \verb|+, -, *, /, %| which each perform
+        additions, subtractions, multiplications, truncating divisions and
+        modular calculations. \imb[7][8]{\cpp/01_varandclass.cpp}
+    \item Relational Expressions: Like most other programming languages, C++
+        features relational operators \imc{==, !=, <, >, <=, >=} which each mean
+        equality, inequality, less-than, greater-than, less-than-or-equal and
+        greater-than-or-equal. \imb[9][10]{\cpp/01_varandclass.cpp}
+    \end{enumerate}
+\item Basic Statements: Statements are combinations of expressions and snippets
+    of code that portray the actions to be taken by the program itself.
+    \begin{enumerate}
+    \item Conditional Statements: Like most other programming languages, C++
+        features selective execution of code with keywords \imc{if...else} and
+        \imc{switch}. \imc{if...else} are used in extensive description of the
+        determining creteria, while \imc{switch} is used for multiple possible
+        outcomes of the same integer, character, or otherwise relatively simple
+        value. \imb[11][17]{\cpp/01_varandclass.cpp}
+    \item Ternary Conditional Operator: The only operator of the C++ language to
+        feature three operands, conditional operator \imc{expr1 ? expr2 : expr3}
+        evaluates the boolean value of \imc{expr1}, and if it is true executes
+        \imc{expr2}, else \imc{expr3}. \imb[18]{\cpp/01_varandclass.cpp}
+    \item Iterative Statements: Like most other programming languages, C++
+        features iterative execution of code with keywords \imc{for} and
+        \imc{while}.
+    \end{enumerate}
+\end{enumerate}
