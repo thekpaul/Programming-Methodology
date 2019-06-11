@@ -70,7 +70,7 @@
         \IfNoValueTF{#2} {%
             \inputminted{cpp}{#3}%
         } {%
-            \inputminted[lastline=#2]{cpp}{#3}%
+            \inputminted[firstline=#2,lastline=#2]{cpp}{#3}%
         }%
     } {%
         \inputminted[firstline=#1,lastline=#2]{cpp}{#3}%
