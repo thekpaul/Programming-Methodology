@@ -5,10 +5,10 @@ given. Note that, if the price for the initial rod length is high enough, the
 optimal solution may require no cutting at all.
 
 \section{Brute Force}
-% \imb[<++>][<++>]{rodcutting.cpp}
-% \imb[<++>][<++>]{rodcutting.cpp}
-% \imb[<++>][<++>]{rodcutting.cpp}
-% \imb[<++>][<++>]{rodcutting.cpp}
+\imb[4][10]{\alg/rodcutting.cpp}
+\imb[35][39]{\alg/rodcutting.cpp}
+\imb[47][47]{\alg/rodcutting.cpp}
+\imb[48][49]{\alg/rodcutting.cpp}
 
 Since there are $n-1$ places to either cut or leave, there are $2^{n-1}$ ways in
 total to cut a rod of $n$ inches. Therefore a brute force algorithm such as the
@@ -16,10 +16,10 @@ one presented solves all possible outcomes and finds the maximum value. Time
 Complexity Analysis shows an exponential time function.
 
 \section{Dynamic Programming: Top-Down Approach}
-% \imb[<++>][<++>]{rodcutting.cpp}
-% \imb[<++>][<++>]{rodcutting.cpp}
-% \imb[<++>][<++>]{rodcutting.cpp}
-% \imb[<++>][<++>]{rodcutting.cpp}
+\imb[12][22]{\alg/rodcutting.cpp}
+\imb[35][39]{\alg/rodcutting.cpp}
+\imb[41][45]{\alg/rodcutting.cpp}
+\imb[48][49]{\alg/rodcutting.cpp}
 
 The most critical reason for the brute force algorithm's exponentailly long time
 conplexity is that brute force repeats sonving what is essentially the same set
@@ -31,10 +31,10 @@ data. With the top-down method presented above, the new array \imc{int* arr} is
 a storage array for the previously processed results.
 
 \section{Dynamic Programming: Bottom-Up Approach}
-% \imb[<++>][<++>]{rodcutting.cpp}
-% \imb[<++>][<++>]{rodcutting.cpp}
-% \imb[<++>][<++>]{rodcutting.cpp}
-% \imb[<++>][<++>]{rodcutting.cpp}
+\imb[24][33]{\alg/rodcutting.cpp}
+\imb[35][39]{\alg/rodcutting.cpp}
+\imb[40][40]{\alg/rodcutting.cpp}
+\imb[48][49]{\alg/rodcutting.cpp}
 
 Unusual circumstances can lead to failures in top-down algorithms where not all
 possible outcomes are tested. The bottom-up approach above often shows strength
