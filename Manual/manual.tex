@@ -66,11 +66,11 @@
 \NewDocumentCommand \imb { o o m } {%
   % \begin{framed}
   %     \refstepcounter<++
-    \IfNoValueTF{#1} {%
-        \IfNoValueTF{#2} {%
+    \IfNoValueTF{#2} {%
+        \IfNoValueTF{#1} {%
             \inputminted{cpp}{#3}%
         } {%
-            \inputminted[firstline=#2,lastline=#2]{cpp}{#3}%
+            \inputminted[firstline=#1,lastline=#1]{cpp}{#3}%
         }%
     } {%
         \inputminted[firstline=#1,lastline=#2]{cpp}{#3}%
