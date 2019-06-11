@@ -1,7 +1,25 @@
 \chapter{Matrix-Chain Multiplication Algorithm}
+The objective of this challenge is to calculate the minimum amount of scalar
+multiplications a group of matrices needs to return the complete and correct
+matrix product. A chain of matrices with random values are given. The chain of
+matrix must be able to be multiplied in the specific order of chain.
 
-\section{<++>}
+Consider three matrices $\mathrm{A}[10][100]$, $\mathrm{B}[100][5]$, and
+$\mathrm{C}[5][50]$. There are two ways to multiply these three matrices:
+\begin{enumerate}
+\item $(A\times B)\times C$: $A\times B$ requires $10\times100\times5=5000$
+    scalar multiplications. $AB\times C$ requites $10\times5\times50=2500$
+    scalar multiplications. Therefore the total amount of scalar multiplications
+    is $5000+2500=7500$ times.
+\item $A\times(B\times C)$: $B\times C$ requites $100\times5\times50=25000$
+    scalar multiplications. $A\times BC$ requires $10\times100\times50=50000$
+    scalar multiplications. Therefore the total amount of scalar multiplications
+    is $25000+50000=75000$
+\end{enumerate}
 
+Given a chain of $n$ matrices and an integer array of $n+1$ elements where each
+matrix $\mathrm{A_i}$ shows the dimesion of $\left(p_{i-1},~p_i\right)$, the
+following solutions are algorithms that minimise scalar multiplication amounts.
 
 \section{<++>}
 
