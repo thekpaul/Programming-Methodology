@@ -1,6 +1,6 @@
 \chapter{Rod Cutting Algorithm}
 The objective of this challenge is to determine how to cut an imaginary rod to
-receive the maximum revenue. Revenue per rod length and initial rod lengths are 
+receive the maximum revenue. Revenue per rod length and initial rod lengths are
 given. Note that, if the price for the initial rod length is high enough, the
 optimal solution may require no cutting at all.
 
@@ -15,6 +15,32 @@ total to cut a rod of $n$ inches. Therefore a brute force algorithm such as the
 one presented solves all possible outcomes and finds the maximum value. Time
 Complexity Analysis shows an exponential time function.
 
-\section{<++>}
+\section{Dynamic Programming: Top-Down Approach}
+% \imb[<++>][<++>]{rodcutting.cpp}
+% \imb[<++>][<++>]{rodcutting.cpp}
+% \imb[<++>][<++>]{rodcutting.cpp}
+% \imb[<++>][<++>]{rodcutting.cpp}
 
-\section{<++>}
+The most critical reason for the brute force algorithm's exponentailly long time
+conplexity is that brute force repeats sonving what is essentially the same set
+of divisions. For example, when processing the cutting of a $9$ inch rod, brute
+force algorithm processes the same 2, 3, and 4-inch dsivision as 6 different
+methods $(2,~3,~4),~(3,~2,~4),\cdots$. This can be solved by recording results
+of previous iterations of the recursion, or the \textbf{memoisation} of previous
+data. With the top-down method presented above, the new array \imc{int* arr} is
+a storage array for the previously processed results.
+
+\section{Dynamic Programming: Bottom-Up Approach}
+% \imb[<++>][<++>]{rodcutting.cpp}
+% \imb[<++>][<++>]{rodcutting.cpp}
+% \imb[<++>][<++>]{rodcutting.cpp}
+% \imb[<++>][<++>]{rodcutting.cpp}
+
+Unusual circumstances can lead to failures in top-down algorithms where not all
+possible outcomes are tested. The bottom-up approach above often shows strength
+in constant factors and overall stability, and can be mathematically proven in
+its ability to always process all subproblems, although such proof will not be
+provided in this manual.
+
+Both Top-Down and Bottom-Up approaches show a time complexity of $T(n)=\Theta
+\left(n^2\right)$.
