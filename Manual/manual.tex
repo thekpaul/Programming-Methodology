@@ -1,9 +1,10 @@
 \documentclass[10pt,openany,a4pper]{book}
 \usepackage[margin=1in,top=1.25in]{geometry}
 \usepackage[hidelinks]{hyperref}
+\usepackage[newfloat]{minted}
 \usepackage[onehalfspacing]{setspace}
 \usepackage{amsmath,amssymb,mathtools,kotex,enumitem,graphicx,fancyhdr,etoolbox,
-    tikz,tgpagella,pgf,minted,import,framed,xparse,xkeyval}
+    tikz,tgpagella,pgf,caption,import,framed,xparse,xkeyval}
 
 \makeatletter
 \@addtoreset{chapter}{part}
@@ -62,19 +63,23 @@
     }
 }
 
+\SetupFloatingEnvironment{listing}{name=Source Code}
+
 %\newcounter{mintcpp}[chapter]
-\NewDocumentCommand \imb { o o m } {%
+\NewDocumentCommand \imb { o o m o } {
   % \begin{framed}
-  %     \refstepcounter<++
-    \IfNoValueTF{#2} {%
-        \IfNoValueTF{#1} {%
-            \inputminted{cpp}{#3}%
-        } {%
-            \inputminted[firstline=#1,lastline=#1]{cpp}{#3}%
-        }%
-    } {%
-        \inputminted[firstline=#1,lastline=#2]{cpp}{#3}%
-    }%
+  %     \refstepcounter<++>
+    \IfNoValueTF{#2} {
+        \IfNoValueTF{#1} {
+            \inputminted{cpp}{#3}
+        } {
+            \inputminted[firstline=#1,lastline=#1]{cpp}{#3}
+        }
+    } {
+        \inputminted[firstline=#1,lastline=#2]{cpp}{#3}
+    } \IfValueTF{#4} {
+        \captionof{listing}{#4}
+    } { }
   % \end{framed}
 } \ExplSyntaxOff
 
