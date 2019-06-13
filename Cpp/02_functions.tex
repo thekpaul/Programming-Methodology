@@ -15,14 +15,62 @@ A function definition consists of four major parts:
     function is not a \imc{void} function, the process ends by returning a value
     that is correspondent to the type of the function.
 \end{enumerate}
-
-% \imb[<++>][<++>]{\cpp/02_functions.cpp}
-% \imb[<++>][<++>]{\cpp/02_functions.cpp}
-
-\section{Procedural Abstraction}
+\begin{minipage}{.5\textwidth}
+\begingroup
+\imb[3][7]{\cpp/02_functions.cpp}[An \imc{int} function]
+\endgroup
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begingroup
+\imb[8][12]{\cpp/02_functions.cpp}[A \imc{void} function]
+\endgroup
+\end{minipage}
 
 \section{Argument Passing Mechanism}
+\begin{enumerate}
+\item Procedure Abstraction: A function encapsulates and names an algorithm to
+    solve a particular problem.
+\item Default Arguments: Default values can be given for each function parameter
+    by asssigning the variables beforehand. If no new values are detected when
+    concerned function is called, the default values are automatically used.
+    \begingroup
+    \imb[14][18]{\cpp/02_functions.cpp}[Function with Default Arguments]
+    \endgroup
+\item Passing Arguments: Arguments can either be called by value, reference, or
+    pointer:
+    \begin{enumerate}
+    \item Call by \textbf{Value}: Function copies the value of provided variable
+        but doesn't use the variable itself. Therefore changes made within the
+        function, when called by value, \textbf{does not affect the variable}.
+        C++, by default, passes arguments by value. No additional symbols need
+        be preceded.
+    \item Call by \textbf{Reference}: Function uses the variable itself, and
+        therefore changes made within the function \textbf{affects the variable}
+        during and after processing the function. C++ requires variables to be
+        prepended by an \textbf{ampersand} (\imc{&}) to call by reference.
+    \item Call by \textbf{Pointer}: Function uses the variable itself as well,
+        but unlike references, which are essentially memory addresses of values,
+        pointers are variables that hold these memory addresses and can be
+        re-assigned to a different value at any point during the program. C++
+        requires variables to be prepended by an \textbf{asterick} (\imc{*}) to
+        call by pointer.
+    \end{enumerate}
+    \begin{minipage}{.5\textwidth}
+    \imb[19][31]{\cpp/02_functions.cpp}[Functions calling variables by value,
+    reference, and pointer] \end{minipage}
+    \begin{minipage}{.5\textwidth}
+    \imb[54][63]{\cpp/02_functions.cpp}[Calling each function in the \imc{main}
+    function] \end{minipage}
+\end{enumerate}
 
 \section{Inline Functions}
+Inline functions are functions that are essentially copied and pasted into lines
+when they are called. \begingroup
+\imb[33][36]{\cpp/02_functions.cpp}[Example of an Inline Function]
+\endgroup
 
 \section{Recursive Functions}
+Recursive Function: A function that calls itself, either directly or indirectly,
+during the process of its own execution. Recursion is used when loops that use
+different, incremental or decremental arguments are required. \begingroup
+\imb[38][43]{\cpp/02_functions.cpp}[Example of a Recursive Function] \endgroup
