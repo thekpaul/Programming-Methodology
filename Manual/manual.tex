@@ -4,7 +4,9 @@
 \usepackage[newfloat]{minted}
 \usepackage[onehalfspacing]{setspace}
 \usepackage{amsmath,amssymb,mathtools,kotex,enumitem,graphicx,fancyhdr,etoolbox,
-    tikz,tgpagella,pgf,caption,import,framed,xparse,xkeyval}
+    tikz,tgpagella,pgf,caption,import,framed,xparse,multicol,xcolor,framed}
+
+\definecolor{light-gray}{rgb}{0.9,0.9,0.9}
 
 \makeatletter
 \@addtoreset{chapter}{part}
@@ -38,7 +40,7 @@
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
     \node[shape=circle,draw,inner sep=0.5pt] (char) {\footnotesize{#1}};}
 } \newcommand{\byte}[1][]{\ensuremath\,\mathrm{#1B}}
-\setminted{fontsize=\small,xleftmargin=0.25in,linenos,breaklines}
+\setminted{fontsize=\small, xleftmargin=0.25in, linenos, breaklines}
 \setlength{\parindent}{0pt}
 \setcounter{tocdepth}{1} % Show only up to SECTIONs
 
@@ -59,11 +61,16 @@
     \IfNoValueTF{#1} {
         \mintinline{cpp}
     } {
-        \mintinlint[#1]{cpp}
+        \mintinline[#1]{cpp}
     }
 }
+\SetupFloatingEnvironment{listing}{name=Code}
+\captionsetup[listing]{aboveskip=0pt,belowskip=0pt,format=hang,font=small}
 
-\SetupFloatingEnvironment{listing}{name=Source Code}
+\makeatletter
+\patchcmd{\minted@colorbg}{\noindent}{\medskip\noindent}{}{}
+\apptocmd{\endminted@colorbg}{\par\medskip}{}{}
+\makeatother
 
 %\newcounter{mintcpp}[chapter]
 \NewDocumentCommand \imb { o o m o } {
