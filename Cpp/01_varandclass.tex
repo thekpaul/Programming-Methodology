@@ -1,15 +1,17 @@
 \chapter{Variables and Class}
 
 \section{The Basics}
+\begingroup
 \imb[1][4]{\cpp/01_varandclass.cpp}
-\imb[29][30]{\cpp/01_varandclass.cpp}
+\imb[29][30]{\cpp/01_varandclass.cpp}[Printing \texttt{Hello, World!} with C++]
+\endgroup
 C++ is the younger, more powerful and versatile form of what C was meant to be.
 C++ utilises features such as object-orientated programming not supported by C.
 
 \subsection{Commenting}
 Single-line comments use two forward slashes: \imc{// Comment 1}\\
-Multi-line comments use a forward slash and a star at each end to denote
-beginning and end: \imc{/* Comment 2 */}
+Multi-line comments use forward slash and star at each end to denote beginning
+and end: \imc{/* Comment 2 */}
 
 \subsection{Types and Variables}
 \begin{enumerate}
@@ -23,8 +25,9 @@ beginning and end: \imc{/* Comment 2 */}
         value.
     \end{enumerate}
 \item Enumerations: \imc{enum} is used to define groups of integer constants.
-    \imb[5]{\cpp/01_varandclass.cpp}
-\newpage
+    \begingroup
+    \imb[5]{\cpp/01_varandclass.cpp}[An example declaration of \imc{enum}]
+    \endgroup
 \item Variable Scopes: Varaibles are defined only up to the level of their own
     declaration.
     \begin{enumerate}
@@ -37,11 +40,12 @@ beginning and end: \imc{/* Comment 2 */}
         be defined as \imc{static} to retain its value from previous uses and
         bypass re-initialisation.
     \end{enumerate}
-\item Constant Qualifier: Variables preceded by the keyword \imc{const} is fixed
-    and cannot be altered by the program.
-    \imb[6]{\cpp/01_varandclass.cpp}
+\item Constant Qualifier: Variables preceded by the keyword \imc{const} cannot
+    be altered by the program. \begingroup
+    \imb[6]{\cpp/01_varandclass.cpp}[An example declaration of constant integer]
+    \endgroup
 \end{enumerate}
-\vspace{\fill}
+
 \section{Basic Expressions and Statements}
 \begin{enumerate}
 \item Basic Expressions: Expressions are combinations of iterated variables
@@ -50,31 +54,40 @@ beginning and end: \imc{/* Comment 2 */}
     \item Arithmetic Expressions: Like most other programming languages, C++
         features arithmetic operators \verb|+, -, *, /, %| which each perform
         additions, subtractions, multiplications, truncating divisions and
-        modular calculations. \imb[7][8]{\cpp/01_varandclass.cpp}
+        modular calculations. \begingroup
+        \imb[7][8]{\cpp/01_varandclass.cpp}[Arithmetic operators in C++]
+        \endgroup
     \item Relational Expressions: Like most other programming languages, C++
         features relational operators \imc{==, !=, <, >, <=, >=} which each mean
         equality, inequality, less-than, greater-than, less-than-or-equal and
-        greater-than-or-equal. \imb[9][10]{\cpp/01_varandclass.cpp}
+        greater-than-or-equal. \begingroup
+        \imb[9][10]{\cpp/01_varandclass.cpp}[Relational operators in C++]
+        \endgroup
     \end{enumerate}
 \item Basic Statements: Statements are combinations of expressions and snippets
     of code that portray the actions to be taken by the program itself.
     \begin{enumerate}
     \item Conditional Statements: Like most other programming languages, C++
         features selective execution of code with keywords \imc{if...else} and
-        \imc{switch}. \imc{if...else} are used in extensive description of the
-        determining creteria, while \imc{switch} is used for multiple possible
-        outcomes of the same integer, character, or otherwise relatively simple
-        value. \imb[11][17]{\cpp/01_varandclass.cpp}
-\newpage
+        \imc{switch}. \imc{if...else} are used for extensive description of the
+        determining criteria, while \imc{switch} is used for multiple possible
+        outcomes of the same, relatively simple value. \begingroup
+        \imb[11][17]{\cpp/01_varandclass.cpp}[Conditional Statements in C++]
+        \endgroup
     \item Ternary Conditional Operator: The only operator of the C++ language to
         feature three operands, conditional operator \imc{expr1 ? expr2 : expr3}
         evaluates the boolean value of \imc{expr1}, and if it is true executes
-            \imc{expr2}, else \imc{expr3}. \imb[18][19]{\cpp/01_varandclass.cpp}
-    \item Iterative Statements: Like most other programming languages, C++
-        features iterative execution of code with keywords \imc{for} and
-        \imc{while}. \imb[20][26]{\cpp/01_varandclass.cpp}
+        \imc{expr2}, else \imc{expr3}. \begingroup
+        \imb[18][19]{\cpp/01_varandclass.cpp}[The Ternary Operator of C++]
+        \endgroup
+    \item Iterative Statements: Like other programming languages, C++ features
+        iterative execution of code with keywords \imc{for} and \imc{while}.
+        \begingroup
+        \imb[20][26]{\cpp/01_varandclass.cpp}[Iterative Statements in C++]
+        \endgroup
     \end{enumerate}
 \item Memory Management: Keywords \imc{new} and \imc{delete} each process the
-    allocation and deallocation of memory in C++.
-    \imb[27][28]{\cpp/01_varandclass.cpp}
+    allocation and deallocation of memory in C++. \begingroup
+    \imb[27][28]{\cpp/01_varandclass.cpp}[Allocation of Memory in C++]
+    \endgroup
 \end{enumerate}
